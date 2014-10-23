@@ -157,7 +157,8 @@ p {
   -webkit-hyphens: auto;
   -epub-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto; }
+  -ms-hyphens: auto;
+      hyphens: auto; }
 
 /*
  * Addresses margins set differently in IE6/7.
@@ -356,7 +357,8 @@ html input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -370,7 +372,6 @@ input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -411,7 +412,6 @@ table {
   border-spacing: 0; }
 
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
@@ -496,6 +496,18 @@ FONT FACE (IN YOUR FACE)
       font-style: normal;
   }
 */
+@font-face {
+  font-family: 'Aleo';
+  src: url("aleo-regular-webfont.eot");
+  src: url("aleo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("aleo-regular-webfont.woff") format("woff"), url("aleo-regular-webfont.ttf") format("truetype"), url("aleo-regular-webfont.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Aleo Bold';
+  src: url("aleo-bold-webfont.eot");
+  src: url("aleo-bold-webfont.eot?#iefix") format("embedded-opentype"), url("aleo-bold-webfont.woff") format("woff"), url("aleo-bold-webfont.ttf") format("truetype"), url("aleo-bold-webfont.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /*
 The following is based of Typebase:
 https://github.com/devinhunt/typebase.css
@@ -516,15 +528,20 @@ p {
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -webkit-hyphenate-before: 2;
   -webkit-hyphenate-after: 3;
   hyphenate-lines: 3;
   -webkit-font-feature-settings: "liga", "dlig";
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig"; }
+
+.dashicon {
+  font-family: 'dashicons', sans-serif;
+  position: relative;
+  top: 2px; }
 
 /******************************************************************
 Site Name:
@@ -910,7 +927,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  color: white;
+  color: #fff;
   font-size: 0.9em;
   font-size: 34px;
   line-height: 34px;
@@ -922,7 +939,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   -webkit-transition: background-color 0.14s ease-in-out;
   transition: background-color 0.14s ease-in-out; }
   .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
-    color: white;
+    color: #fff;
     text-decoration: none; }
   .blue-btn:active, .comment-reply-link:active, #submit:active {
     top: 1px; }
@@ -978,7 +995,6 @@ textarea,
 .field {
   display: block;
   height: 40px;
-  line-height: 40px;
   padding: 0 12px;
   margin-bottom: 14px;
   font-size: 1em;
@@ -988,8 +1004,7 @@ textarea,
   box-shadow: none;
   border: 0;
   width: 100%;
-  max-width: 400px;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Aleo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #eaedf2;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
@@ -1062,7 +1077,7 @@ textarea,
   .field.is-invalid {
     color: #fbe3e4;
     border-color: #fbe3e4;
-    background-color: white;
+    background-color: #fff;
     background-position: 99% center;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
@@ -1102,7 +1117,7 @@ textarea,
   .field.is-valid {
     color: #e6efc2;
     border-color: #e6efc2;
-    background-color: white;
+    background-color: #fff;
     background-position: 99% center;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDRERkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDRFMEYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MzQ0NERERjA0QjExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERFRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7olkTQAAAfhJREFUeNqklU9oE0EUhzdroWjw0tBeWlDxkEaIp55TsCU9VKIgCrHBelA8CQ1Kr1WPbZrQ3gqtQqvGqxpQc2jBk6BIIaAGD4qNCKURpDSKiPi98gLDsJt//uBjsztvfnk7895sIPAw6/joGMThFJyAXn2+A+9gA57/TaY/eU0OeBgfhGm4DiGnsb7DAszxBz/NAdcKjMJLuNWCqagHbsscN5+L+hmH4QkMOe1L5jzFfNA2PgT34ajTuY7AGuZB0/hmh5m+gS0r8xv1zRvg+gGCHZiOwnF4DP3iB3sQkYxPd2C6CWfhB9Xwlus5+K1j4jXuaq3a+gM1H9OPcAa+7q9lPidZJqHbiIm7Wg22rsEI7FrPSzAMX/T+ADyAKSsu7Fr1KplehLvwCs5DvfBf65p+MypqRbO1FXK9utH4/QKuaqYTsG3E3INJv00Q46px3+XxanJ/Ute2/vqP4FKDza2KcdljIKdnhS0xXYULTaqmLMZFn8FFSFtvt6x70ExFCS5oUXspq2ssa7oEl1swFa+CGFdgtkHgPDyDKy02zyxNU6lXRUZb1EuHYayNNs+Yh5B0WQo+/8fpJnNTZFuzz2OpjoQ2QruSOQlMy35fEGmEGMxY9e1brxobw7TkWA1h6xfckUPb+JhGoE/Hpfvew7qUld/H9J8AAwDpw3WYrxcZ3QAAAABJRU5ErkJggg==);
@@ -1247,18 +1262,138 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Aleo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
   line-height: 1.5;
   color: #5c6b80;
-  background-color: #eaedf2;
   -webkit-font-smoothing: antialiased; }
+
+a {
+  text-decoration: none;
+  color: #0088cc; }
+  a:hover {
+    color: #00aaff; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+  img:hover, img:focus {
+    opacity: 0.8; }
+
+b, strong {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.nostyle {
+  list-style-type: none; }
+
+.search-term {
+  font-weight: 600;
+  background: #eee;
+  padding: .2em .5em; }
+
+.post-loop .post-title {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #0088cc; }
+  .post-loop .post-title:hover {
+    color: #FF7216; }
+.post-loop .tagline {
+  margin: .5em 0;
+  color: #777;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.post-loop .hentry {
+  margin-bottom: 1.5em;
+  border-bottom: 1px dotted #eee;
+  padding-bottom: 1em; }
+.post-loop .post-loop-thumb {
+  float: left;
+  margin-right: 1em; }
+.post-loop .post-loop-meta {
+  margin-top: -6px; }
+
+p.tags {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  p.tags a {
+    font-weight: 600; }
 
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
 ********************/
 /* for sites that are read right to left (i.e. hebrew) */
+.home #soliloquy-container-49 .soliloquy-caption {
+  display: none;
+  width: 100%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: auto;
+  position: absolute;
+  height: 100%; }
+.home #soliloquy-container-49 .soliloquy-container .soliloquy-caption-inside {
+  width: 100% !important;
+  height: 100% !important; }
+.home #soliloquy-container-49 h2.soliloquy-fc-title, .home #soliloquy-container-49 .soliloquy-fc-title-link {
+  font-size: 1em !important;
+  font-weight: 500 !important; }
+.home .soliloquy-fc-slider .soliloquy-caption-inside {
+  height: 100% !important; }
+.home .feature-wrap {
+  margin: 0 0 1.5em;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap; }
+  .home .feature-wrap .home-feature {
+    margin-right: 1.3em;
+    position: relative;
+    overflow: hidden; }
+    .home .feature-wrap .home-feature .feature-link {
+      position: absolute;
+      width: 100%;
+      height: 96%; }
+    .home .feature-wrap .home-feature .post-title {
+      font-size: 1.5em;
+      margin: 0;
+      position: absolute;
+      max-width: 800px;
+      max-height: 200px;
+      padding: 1em;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4); }
+      .home .feature-wrap .home-feature .post-title:hover {
+        background: rgba(0, 136, 204, 0.6); }
+    .home .feature-wrap .home-feature .feature-tagline {
+      position: absolute;
+      background: #0088cc;
+      color: #fff;
+      font-family: "Lato";
+      padding: 2px 5px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 26px; }
+  .home .feature-wrap .home-callout {
+    float: right; }
+.home .home-wrap {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap; }
+
 /* home page */
 /* blog template page */
 /* archive page */
@@ -1269,6 +1404,14 @@ style a page via class
 /* no results search page */
 /* individual paged search (i.e. body.search-paged-3) */
 /* 404 page */
+.single .entry-content .post-loop-thumb {
+  margin: 1.5em 0 0;
+  padding: 0; }
+  .single .entry-content .post-loop-thumb img {
+    margin-bottom: 0; }
+.single .entry-content img {
+  margin: 0 0 1.5em; }
+
 /* single post page */
 /* individual post page by id (i.e. body.postid-73) */
 /* individual paged single (i.e. body.single-paged-3) */
@@ -1278,6 +1421,9 @@ style a page via class
 /* author page */
 /* user nicename (i.e. body.author-samueladams) */
 /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category .post-loop {
+  width: 100%; }
+
 /* category page */
 /* individual category page (i.e. body.category-6) */
 /* replace the number to the corresponding page number */
@@ -1304,12 +1450,12 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #f01d4f;
+  color: #0088cc;
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #d10e3c; }
+    color: #FF7216; }
   a:link, a:visited:link {
     /*
     this highlights links on iPhones/iPads.
@@ -1323,6 +1469,7 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
+  font-family: "Aleo Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   /*
   if you're going to use webfonts, be sure to check your weights
@@ -1357,13 +1504,13 @@ h5, .h5 {
 /*********************
 HEADER STYLES
 *********************/
-.header {
-  background-color: #323944; }
+.header #header-search .screen-reader-text {
+  display: none; }
 
 #logo {
-  margin: 0.75em 0; }
+  display: none; }
   #logo a {
-    color: white; }
+    color: #fff; }
 
 /*********************
 NAVIGATION STYLES
@@ -1375,6 +1522,9 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
+.main-nav {
+  display: none; }
+
 .nav {
   border-bottom: 0;
   margin: 0;
@@ -1391,7 +1541,7 @@ and more scalable.
     */ }
     .nav li a {
       display: block;
-      color: white;
+      color: #fff;
       text-decoration: none;
       padding: 0.75em;
       /*
@@ -1412,16 +1562,9 @@ POSTS & CONTENT STYLES
   margin-top: 1.5em; }
 
 .hentry {
-  background-color: white;
-  border-radius: 3px;
-  margin-bottom: 1.5em;
-  border: 1px solid #cccccc; }
-  .hentry header {
-    border-bottom: 1px solid #f8f9fa;
-    padding: 1.5em; }
+  margin-bottom: 1.5em; }
   .hentry footer {
-    padding: 1.5em;
-    border-top: 1px solid #f8f9fa; }
+    margin: 0 0 1.5em; }
     .hentry footer p {
       margin: 0; }
 
@@ -1443,12 +1586,16 @@ POSTS & CONTENT STYLES
 /* post meta */
 .byline {
   color: #9fa6b4;
-  font-style: italic;
-  margin: 0; }
+  margin: 0;
+  font-size: 12px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .byline a {
+    color: #9fa6b4; }
+    .byline a:hover {
+      color: #5c6b80; }
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1.5em 0;
   /*
   image alignment on a screen this size may be
   a bit difficult. It's set to start aligning
@@ -1456,7 +1603,8 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */ }
   .entry-content p {
-    margin: 0 0 1.5em; }
+    margin: 0 0 1.5em;
+    font-family: "Aleo", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .entry-content table {
     width: 100%;
     border: 1px solid #eaedf2;
@@ -1531,8 +1679,14 @@ POSTS & CONTENT STYLES
 /* image gallery styles */
 /* end .gallery */
 /* gallery caption styles */
+.article-footer .mashsb-count {
+  display: none; }
+
 .tags {
   margin: 0; }
+
+.post-author, .post-time {
+  margin-right: 8px; }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -1545,7 +1699,7 @@ PAGE NAVI STYLES
   text-align: center; }
   .pagination ul {
     display: inline-block;
-    background-color: white;
+    background-color: #fff;
     white-space: nowrap;
     padding: 0;
     clear: both;
@@ -1570,12 +1724,12 @@ PAGE NAVI STYLES
     color: #2980b9; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
       background-color: #2980b9;
-      color: white; }
+      color: #fff; }
   .pagination .current {
     cursor: default;
     color: #5c6b80; }
     .pagination .current:hover, .pagination .current:focus {
-      background-color: white;
+      background-color: #fff;
       color: #5c6b80; }
 
 /* end .bones_page_navi */
@@ -1647,7 +1801,7 @@ COMMENT STYLES
     margin-left: 7px;
     padding: 7px; }
   .comment.odd {
-    background-color: white; }
+    background-color: #fff; }
   .comment.even {
     background: #f8f9fa; }
 
@@ -1722,14 +1876,6 @@ SIDEBARS & ASIDES
 .widget ul li {
   /* deep nesting */ }
 
-.no-widgets {
-  background-color: white;
-  padding: 1.5em;
-  text-align: center;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin-bottom: 1.5em; }
-
 /*********************
 FOOTER STYLES
 *********************/
@@ -1748,6 +1894,81 @@ override these styles for the desktop
 view.
 */
 /* end .footer-links */
+.home .soliloquy-prev {
+  opacity: .2 !important;
+  position: absolute !important;
+  left: 0px !important;
+  height: 100% !important;
+  top: 16px !important; }
+  .home .soliloquy-prev:hover, .home .soliloquy-prev:focus {
+    opacity: .8 !important; }
+
+.home .soliloquy-next {
+  opacity: .2 !important;
+  position: absolute !important;
+  height: 100% !important;
+  top: 16px !important;
+  right: 0px !important; }
+  .home .soliloquy-next:hover, .home .soliloquy-next:focus {
+    opacity: .8 !important; }
+
+.mashsb-container {
+  margin: 1.5em 0; }
+
+.mashsb-box, .mashsb-count, .mashsb-sharetext {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
+
+.mashsb-count {
+  font-size: 34px !important;
+  margin-top: 8px !important; }
+
+.yarpp-related h3, .yarpp-related-widget h3 {
+  font-family: "Lato";
+  font-weight: 600; }
+
+.yarpp-related li {
+  width: 160px;
+  display: inline-block;
+  height: 170px;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.4; }
+  .yarpp-related li a {
+    font-family: "Aleo", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail {
+  border: 0 !important;
+  width: 160px !important;
+  height: 170px !important;
+  margin: 0 !important;
+  margin-left: 0px;
+  vertical-align: top; }
+
+.yarpp-thumbnail > img, .yarpp-thumbnail-default {
+  width: 150px !important;
+  height: auto !important;
+  margin: 0 !important; }
+
+/*********************
+SMALL MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's
+larger than an iPhone but smaller than a tablet. Let's call them
+tweeners.
+*********************/
+@media only screen and (max-width: 480px) {
+  /******************************************************************
+  Site Name:
+  Author:
+  
+  Stylesheet: Below iPad Stylesheet
+  
+  For widths below 481px
+  
+  ******************************************************************/
+  .home .feature-wrap .home-feature .post-title {
+    position: absolute;
+    height: 98%;
+    font-size: 1.2em; } }
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -1777,6 +1998,9 @@ tweeners.
   anymore, so just be aware that if you drop
   them in here, they won't work.
   */
+  .home .feature-wrap .home-feature .post-title {
+    font-size: 1.8em; }
+
   /*********************
   NAVIGATION STYLES
   *********************/
@@ -1803,6 +2027,7 @@ tweeners.
   *********************/
   /* entry content */
   .entry-content {
+    padding-right: 1.5em;
     /* at this larger size, we can start to align images */ }
     .entry-content .alignleft, .entry-content img.alignleft {
       margin-right: 1.5em;
@@ -1827,6 +2052,53 @@ tweeners.
   do they need tweaking?
   */
   /* end .footer-links */ }
+/*********************
+PHABLET DOWN
+This is for all devices below iPad portrait size. This media
+query makes it easy, yo.
+*********************/
+@media only screen and (min-width: 481px) and (max-width: 599px) {
+  /******************************************************************
+  Site Name:
+  Author:
+  
+  Stylesheet: Phablet & Down stylesheet
+  
+  For widths 599px and below
+  ******************************************************************/
+  .home .feature-wrap .home-feature .post-title {
+    font-size: 1.5em; } }
+/*********************
+BELOW TABLET
+This is for all devices below iPad portrait size. This media
+query makes it easy, yo.
+*********************/
+@media only screen and (max-width: 767px) {
+  /******************************************************************
+  Site Name:
+  Author:
+  
+  Stylesheet: Below iPad Stylesheet
+  
+  For widths below 768px
+  
+  ******************************************************************/
+  .search-form {
+    width: 96%;
+    margin-left: 0;
+    max-width: 96%; }
+
+  .search-submit {
+    display: none; }
+
+  .home .feature-wrap .home-feature {
+    margin-right: 0; }
+
+  .home-callout {
+    display: none; }
+
+  .news-loop, .trend-loop {
+    display: none; } }
 /*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
@@ -1859,16 +2131,81 @@ you can add resource intensive styles.
   /*********************
   HEADER STYLES
   *********************/
+  .sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    height: 80px; }
+
+  .header-scroll {
+    opacity: .987;
+    box-shadow: 0px 1px 3px #eee; }
+    .header-scroll .sub-menu {
+      opacity: 1; }
+
+  .header {
+    background: #fff; }
+    .header #header-search {
+      float: right; }
+    .header input[type="search"] {
+      max-width: 400px; }
+    .header .search-form {
+      position: relative;
+      top: 17px;
+      right: -8px; }
+    .header .search-field {
+      background-color: transparent;
+      background-image: url(../images/search-icon.png);
+      background-position: 5px center;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      border: none;
+      cursor: pointer;
+      height: 37px;
+      margin: 3px 0;
+      padding: 0 0 0 34px;
+      position: relative;
+      -webkit-transition: width 400ms ease, background 400ms ease;
+      transition: width 400ms ease, background 400ms ease;
+      width: 0;
+      opacity: .5; }
+      .header .search-field:hover {
+        opacity: .8; }
+    .header .search-field:focus {
+      background-color: #eee;
+      cursor: text;
+      outline: 0;
+      width: 230px;
+      opacity: 1;
+      right: 16px; }
+    .header .search-form
+    .search-submit {
+      display: none; }
+
+  #logo {
+    width: 300px;
+    float: left;
+    margin: 15px 0 0 -4px;
+    display: block; }
+
   /*********************
   NAVIGATION STYLES
   *********************/
+  .main-nav {
+    float: right;
+    position: relative;
+    top: 14px;
+    display: block; }
+
   .nav {
     border: 0;
     /* end .menu ul li */
     /* highlight current page */
     /* end current highlighters */ }
     .nav ul {
-      background: #323944;
+      background: #fff;
       margin-top: 0; }
     .nav li {
       float: left;
@@ -1879,21 +2216,25 @@ you can add resource intensive styles.
       /* showing sub-menus */ }
       .nav li a {
         border-bottom: 0;
+        color: #5c6b80;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
         /*
         you can use hover styles here even though this size
         has the possibility of being a mobile device.
         */ }
         .nav li a:hover, .nav li a:focus {
-          color: white;
-          text-decoration: underline; }
+          color: #0088cc;
+          background: #eee; }
       .nav li ul.sub-menu,
       .nav li ul.children {
         margin-top: 0;
-        border: 1px solid #ccc;
         border-top: 0;
         position: absolute;
         visibility: hidden;
         z-index: 8999;
+        right: 0;
+        background: #eee;
         /* highlight sub-menu current page */ }
         .nav li ul.sub-menu li,
         .nav li ul.children li {
@@ -1907,8 +2248,12 @@ you can add resource intensive styles.
             padding-left: 10px;
             border-right: 0;
             display: block;
-            width: 180px;
-            border-bottom: 1px solid #ccc; }
+            width: 240px; }
+            .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus,
+            .nav li ul.children li a:hover,
+            .nav li ul.children li a:focus {
+              background: #ddd;
+              opacity: 1; }
           .nav li ul.sub-menu li:last-child a,
           .nav li ul.children li:last-child a {
             border-bottom: 0; }
@@ -1921,9 +2266,96 @@ you can add resource intensive styles.
         visibility: visible; }
 
   /* end .nav */
+  /********************
+  WORDPRESS BODY CLASSES
+  style a page via class
+  ********************/
+  /* for sites that are read right to left (i.e. hebrew) */
+  .home #content {
+    padding-top: 60px; }
+  .home .news-loop h3, .home .trend-loop h3 {
+    margin: 0 0 .5em;
+    border-bottom: 1px solid #e5e5e5; }
+  .home .news-loop {
+    float: left;
+    margin-right: 1.5em;
+    max-width: 404px; }
+    .home .news-loop .post-title {
+      font-size: 1.2em;
+      padding: 0;
+      margin: 0;
+      color: #777; }
+      .home .news-loop .post-title:hover {
+        color: #FF7216; }
+  .home .trend-loop {
+    float: right;
+    width: 200px; }
+    .home .trend-loop .post-title {
+      display: none; }
+
+  /* home page */
+  /* blog template page */
+  /* archive page */
+  /* date archive page */
+  /* replace the number to the corresponding page number */
+  /* search page */
+  /* search result page */
+  /* no results search page */
+  /* individual paged search (i.e. body.search-paged-3) */
+  /* 404 page */
+  /* single post page */
+  /* individual post page by id (i.e. body.postid-73) */
+  /* individual paged single (i.e. body.single-paged-3) */
+  /* attatchment page */
+  /* individual attatchment page (i.e. body.attachmentid-763) */
+  /* style mime type pages */
+  .author .post-loop {
+    width: 100%; }
+
+  /* author page */
+  /* user nicename (i.e. body.author-samueladams) */
+  /* paged author archives (i.e. body.author-paged-4) for page 4 */
+  /* category page */
+  /* individual category page (i.e. body.category-6) */
+  /* replace the number to the corresponding page number */
+  /* tag page */
+  /* individual tag page (i.e. body.tag-news) */
+  /* replace the number to the corresponding page number */
+  /* custom page template page */
+  /* individual page template (i.e. body.page-template-contact-php */
+  /* replace the number to the corresponding page number */
+  /* parent page template */
+  /* child page template */
+  /* replace the number to the corresponding page number */
+  /* if user is logged in */
+  /* paged items like search results or archives */
+  /* individual paged (i.e. body.paged-3) */
+  .post-loop {
+    width: 50%;
+    float: left;
+    margin-right: 1.5em;
+    padding-right: 1em; }
+
   /*********************
   SIDEBARS & ASIDES
   *********************/
+  #sidebar1 .yarpp-related-widget li {
+    height: 60px;
+    list-style: none; }
+    #sidebar1 .yarpp-related-widget li .yarpp-widget-title {
+      font-size: .875em;
+      line-height: 18px;
+      display: block; }
+    #sidebar1 .yarpp-related-widget li .share-count {
+      color: #bbb;
+      font-size: .8em; }
+  #sidebar1 .widget-thumb {
+    float: left;
+    margin-right: 12px; }
+    #sidebar1 .widget-thumb img {
+      width: 80px;
+      vertical-align: text-top; }
+
   .sidebar {
     margin-top: 2.2em; }
 
@@ -1969,6 +2401,35 @@ you can add resource intensive styles.
 
   /* end .footer-links */ }
 /*********************
+DESKTOP TWEENER
+These are in-between desktop sizes but remember, tablets
+will also be affected
+*********************/
+@media only screen and (min-width: 768px) and (max-width: 1029px) {
+  /******************************************************************
+  Site Name:
+  Author:
+  
+  Stylesheet: Desktop Tweener Stylesheet
+  
+  For widths between 768px and 1029px
+  
+  ******************************************************************/
+  .home-feature {
+    overflow: hidden; }
+    .home-feature .post-title {
+      font-size: 1.5em; }
+
+  .nav li a {
+    font-size: .8em; }
+
+  .main-nav {
+    top: 18px; }
+
+  .search-field:focus {
+    position: absolute;
+    opacity: .96 !important; } }
+/*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
@@ -1986,7 +2447,14 @@ you can add resource intensive styles.
   
   ******************************************************************/
   .wrap {
-    width: 1040px; } }
+    max-width: 1200px;
+    width: 100%; }
+
+  .home-feature {
+    height: 97%; }
+
+  .home .feature-wrap .home-feature .post-title {
+    font-size: 2.2em; } }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
@@ -2001,7 +2469,9 @@ This is for the larger monitors and possibly full screen viewers.
   You can add some advanced styles here if you like. This kicks in
   on larger screens.
   
-  ******************************************************************/ }
+  ******************************************************************/
+  .home .feature-wrap .home-feature .feature-link {
+    height: 100%; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
@@ -2071,7 +2541,8 @@ be set to display none.
     background: transparent !important;
     color: black !important;
     text-shadow: none !important;
-    filter: none !important;
+    -webkit-filter: none !important;
+            filter: none !important;
     -ms-filter: none !important; }
 
   a, a:visited {

@@ -21,12 +21,28 @@
                   <h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 
                   <p class="byline vcard">
-                    <?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
+
+                  <span class="dashicons-admin-users dashicon"></span> <span class="post-author"><?php the_author_posts_link(); ?></span> <span class="dashicons-clock dashicon"></span><span class="post-time"> <?php echo time_ago(); ?></span> <span class="dashicons-admin-comments dashicon"></span> <a class="comments-link" href="<?php the_permalink(); ?>#disqus_thread"></a>
+  
                   </p>
 
                 </header> <?php // end article header ?>
 
                 <section class="entry-content cf" itemprop="articleBody">
+
+                <section class="post-loop-thumb cf">
+
+                <?php 
+                  if ( has_post_thumbnail() ) { ?> 
+                    <?php the_post_thumbnail('fapp-thumb-800'); ?>
+                  <?php } 
+                ?>
+                </section>
+
+                <section class="social-sharing sharing-post">
+                     <?php do_action("mashshare"); ?>
+                </section>
+
                   <?php
                     // the content (pretty self explanatory huh)
                     the_content();
@@ -54,9 +70,17 @@
 
                 <footer class="article-footer">
 
-                  <?php printf( __( 'Filed under: %1$s', 'bonestheme' ), get_the_category_list(', ') ); ?>
+                  <section class="social-sharing">
+                     <?php do_action("mashshare"); ?>
+                  </section>
+
+                  <section class="related-posts">
+                  <?php related_posts(); ?>
+                  </section>
 
                   <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+
+                  
 
                 </footer> <?php // end article footer ?>
 

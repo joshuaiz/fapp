@@ -101,6 +101,54 @@ function loadGravatars() {
 	}
 } // end function
 
+/*!------------------------------------------------------
+ * jQuery nearest v1.0.3
+ * http://github.com/jjenzz/jQuery.nearest
+ * ------------------------------------------------------
+ * Copyright (c) 2012 J. Smith (@jjenzz)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ */
+(function($, d) {
+  $.fn.nearest = function(selector) {
+    var self, nearest, el, s, p,
+        hasQsa = d.querySelectorAll;
+
+    function update(el) {
+      nearest = nearest ? nearest.add(el) : $(el);
+    }
+
+    this.each(function() {
+      self = this;
+
+      $.each(selector.split(','), function() {
+        s = $.trim(this);
+
+        if (!s.indexOf('#')) {
+          // selector starts with an ID
+          update((hasQsa ? d.querySelectorAll(s) : $(s)));
+        } else {
+          // is a class or tag selector
+          // so need to traverse
+          p = self.parentNode;
+          while (p) {
+            el = hasQsa ? p.querySelectorAll(s) : $(p).find(s);
+            if (el.length) {
+              update(el);
+              break;
+            }
+            p = p.parentNode;
+          }
+        }
+      });
+
+    });
+
+    return nearest || $();
+  };
+}(jQuery, document));
+
 
 /*
  * Put all your regular jQuery in here.
@@ -114,4 +162,70 @@ jQuery(document).ready(function($) {
   loadGravatars();
 
 
+// Show/hide captions on carousel
+  $(".soliloquy-item").hover(function () {
+       var caption = $(this).find(".soliloquy-caption").first();
+        caption.toggle();
+       var active = caption.nearest('.soliloquy-link');
+       caption.appendTo(active);
+    });
+
+
+$('.sharing-post .sola_nl_sign_up_box').appendTo('.sharing-post .mashsb-toggle-container');
+
+$('.article-footer .sola_nl_sign_up_box').appendTo('.article-footer .mashsb-toggle-container');
+
+if($('.byline .comments-link').text().length == 0 ) {
+  $('.comments-link').text('0 Comments');
+
+}
+
+$('.sub-menu').hover(function() {
+  $(this).closest('.menu-item-has-children').css('background', '#eeeeee');
+}, function() {
+  $(this).closest('.menu-item-has-children').css('background', 'none');
+});
+
+// $('.feature-image').load(function() {
+//   $(this).closest('.home-feature').css('height', $(this).height());
+// });
+
+var img = $('.feature-image img'); 
+img.load(function() {
+    var width = img.width();
+    var height = img.height();
+    $('.home-feature, .home-feature .post-title').css('height', height);
+    $('.home-feature, .home-feature .post-title').css('overflow', 'hidden');
+});
+
+$('.feature-tagline').appendTo('.feature-link .post-title');
+
+
+
 }); /* end of as page load scripts */
+
+
+// jQuery(document).ready(function($){
+//   $(window).scroll(function(){
+//   var sticky = $('header'),
+//       scroll = $(window).scrollTop();
+
+//   if (scroll >= 100) sticky.addClass('header-scroll');
+//   else sticky.removeClass('header-scroll');
+// });
+// });
+
+jQuery(document).ready(function($){
+  var offset = $( ".sticky-header" ).offset();
+var sticky = document.getElementById("sticky-header")
+
+$(window).scroll(function() {
+
+    if ( $('body').scrollTop() > offset.top){
+        $('.sticky-header').addClass('header-scroll');
+    } else {
+         $('.sticky-header').removeClass('header-scroll');
+    } 
+
+});
+});

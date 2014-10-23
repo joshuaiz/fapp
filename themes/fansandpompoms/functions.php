@@ -73,8 +73,14 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'fapp-thumb-1200', 1200, 800, true );
+add_image_size( 'fapp-thumb-800', 800, 200, true );
+add_image_size( 'fapp-thumb-600', 600, 400, true );
+add_image_size( 'fapp-thumb-400', 400, 100, true );
+add_image_size( 'fapp-thumb-380', 380, 200, true );
+add_image_size( 'fapp-thumb-300', 300, 200, true );
+add_image_size( 'fapp-thumb-200', 200, 100, true );
+add_image_size( 'fapp-thumb-150', 150, 100, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -100,8 +106,14 @@ add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
 
 function bones_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'bones-thumb-600' => __('600px by 150px'),
-        'bones-thumb-300' => __('300px by 100px'),
+        'fapp-thumb-800' => __('1200px by 800px'),
+        'fapp-thumb-800' => __('800px by 200px'),
+        'fapp-thumb-600' => __('600px by 150px'),
+        'fapp-thumb-400' => __('400px by 100px'),
+        'fapp-thumb-380' => __('380px by 200px'),
+        'fapp-thumb-300' => __('300px by 200px'),
+        'fapp-thumb-300' => __('200px by 100px'),
+        'fapp-thumb-150' => __('150px by 100px'),
     ) );
 }
 
@@ -238,12 +250,35 @@ external fonts. If you're using Google Fonts, you
 can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
-function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+// function bones_fonts() {
+//   wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+// }
+
+// add_action('wp_enqueue_scripts ', 'bones_fonts');
+
+function time_ago( $type = 'post' ) {
+    $d = 'comment' == $type ? 'get_comment_time' : 'get_post_time';
+
+    return human_time_diff($d('U'), current_time('timestamp')) . " " . __('ago');
+
 }
 
-add_action('wp_enqueue_scripts ', 'bones_fonts');
+add_action( 'wp_enqueue_scripts', 'mytheme_scripts' );
+ 
+/**
+ * Enqueue Dashicons style for frontend use
+ */
+function mytheme_scripts() {
+  wp_enqueue_style( 'dashicons' );
+}
 
-
+function direct_email($text="Send by email"){
+        global $post;
+        $title = htmlspecialchars($post->post_title);
+        $subject = 'Sur '.htmlspecialchars(get_bloginfo('name')).' : '.$title;
+        $body = 'I recommend this page : '.$title.'. You can read it on : '.get_permalink($post->ID);
+        $link = '<a rel="nofollow" href="mailto:?subject='.rawurlencode($subject).'&amp;body='.rawurlencode($body).'" title="'.$text.' : '.$title.'">'.$text.'</a>';
+        return $link;
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

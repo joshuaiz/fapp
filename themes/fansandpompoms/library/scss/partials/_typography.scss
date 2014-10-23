@@ -40,6 +40,28 @@ FONT FACE (IN YOUR FACE)
   }
 */
 
+@font-face {
+      font-family: 'Aleo';
+      src: url('aleo-regular-webfont.eot');
+      src: url('aleo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('aleo-regular-webfont.woff') format('woff'),
+             url('aleo-regular-webfont.ttf') format('truetype'),
+             url('aleo-regular-webfont.svg#font-name') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+@font-face {
+      font-family: 'Aleo Bold';
+      src: url('aleo-bold-webfont.eot');
+      src: url('aleo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+             url('aleo-bold-webfont.woff') format('woff'),
+             url('aleo-bold-webfont.ttf') format('truetype'),
+             url('aleo-bold-webfont.svg#font-name') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+
 
 /*
 The following is based of Typebase:
@@ -51,12 +73,15 @@ I've edited it a bit, but it's a nice starting point.
 // font stacks
 $sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+// $junction:                "junction_regularregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /*
  i imported this one in the functions file so bones would look sweet.
  don't forget to remove it for your site.
 */
 $lato:              'Lato', $sans-serif;
+$aleo:              'Aleo', $sans-serif;
+$aleo-bold:         'Aleo Bold', $sans-serif;
 
 /*
 some nice typographical defaults
@@ -81,5 +106,11 @@ p {
       -ms-font-feature-settings: "liga", "dlig";
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
+}
+
+.dashicon {
+  font-family: 'dashicons', sans-serif;
+  position: relative;
+  top: 2px;
 }
 

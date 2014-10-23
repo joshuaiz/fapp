@@ -10,5 +10,14 @@ be seen on the Desktop.
 ******************************************************************/
 
 .wrap {
-  width: 1040px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.home-feature {
+	height: 97%;
+}
+
+.home .feature-wrap .home-feature .post-title {
+	font-size: 2.2em;
 }

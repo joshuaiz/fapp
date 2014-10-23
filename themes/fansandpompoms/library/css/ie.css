@@ -43,6 +43,90 @@ http://sachagreif.com/sass-color-variables/
 Site Name:
 Author:
 
+Stylesheet: Typography
+
+Need to import a font or set of icons for your site? Drop them in
+here or just use this to establish your typographical grid. Or not.
+Do whatever you want to...GOSH!
+
+Helpful Articles:
+http://trentwalton.com/2012/06/19/fluid-type/
+http://ia.net/blog/responsive-typography-the-basics/
+http://alistapart.com/column/responsive-typography-is-a-physical-discipline
+
+******************************************************************/
+/*********************
+FONT FACE (IN YOUR FACE)
+*********************/
+/*  To embed your own fonts, use this syntax
+  and place your fonts inside the
+  library/fonts folder. For more information
+  on embedding fonts, go to:
+  http://www.fontsquirrel.com/
+  Be sure to remove the comment brackets.
+*/
+/*  @font-face {
+      font-family: 'Font Name';
+      src: url('library/fonts/font-name.eot');
+      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+*/
+@font-face {
+  font-family: 'Aleo';
+  src: url("aleo-regular-webfont.eot");
+  src: url("aleo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("aleo-regular-webfont.woff") format("woff"), url("aleo-regular-webfont.ttf") format("truetype"), url("aleo-regular-webfont.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Aleo Bold';
+  src: url("aleo-bold-webfont.eot");
+  src: url("aleo-bold-webfont.eot?#iefix") format("embedded-opentype"), url("aleo-bold-webfont.woff") format("woff"), url("aleo-bold-webfont.ttf") format("truetype"), url("aleo-bold-webfont.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*
+The following is based of Typebase:
+https://github.com/devinhunt/typebase.css
+I've edited it a bit, but it's a nice starting point.
+*/
+/*
+ i imported this one in the functions file so bones would look sweet.
+ don't forget to remove it for your site.
+*/
+/*
+some nice typographical defaults
+more here: http://www.newnet-soft.com/blog/csstypography
+*/
+p {
+  -ms-word-break: break-all;
+  -ms-word-wrap: break-all;
+  word-break: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig"; }
+
+.dashicon {
+  font-family: 'dashicons', sans-serif;
+  position: relative;
+  top: 2px; }
+
+/******************************************************************
+Site Name:
+Author:
+
 Stylesheet: Mixins Stylesheet
 
 This is where you can take advantage of Sass' great features: Mixins.
@@ -117,6 +201,9 @@ You can't use @extend within media queries
 anymore, so just be aware that if you drop
 them in here, they won't work.
 */
+.home .feature-wrap .home-feature .post-title {
+  font-size: 1.8em; }
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -143,6 +230,7 @@ POSTS & CONTENT STYLES
 *********************/
 /* entry content */
 .entry-content {
+  padding-right: 1.5em;
   /* at this larger size, we can start to align images */ }
   .entry-content .alignleft, .entry-content img.alignleft {
     margin-right: 1.5em;
@@ -192,15 +280,81 @@ LAYOUT & GRID STYLES
 /*********************
 HEADER STYLES
 *********************/
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  height: 80px; }
+
+.header-scroll {
+  opacity: .987;
+  box-shadow: 0px 1px 3px #eee; }
+  .header-scroll .sub-menu {
+    opacity: 1; }
+
+.header {
+  background: #fff; }
+  .header #header-search {
+    float: right; }
+  .header input[type="search"] {
+    max-width: 400px; }
+  .header .search-form {
+    position: relative;
+    top: 17px;
+    right: -8px; }
+  .header .search-field {
+    background-color: transparent;
+    background-image: url(../images/search-icon.png);
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    border: none;
+    cursor: pointer;
+    height: 37px;
+    margin: 3px 0;
+    padding: 0 0 0 34px;
+    position: relative;
+    -webkit-transition: width 400ms ease, background 400ms ease;
+    transition: width 400ms ease, background 400ms ease;
+    width: 0;
+    opacity: .5; }
+    .header .search-field:hover {
+      opacity: .8; }
+  .header .search-field:focus {
+    background-color: #eee;
+    cursor: text;
+    outline: 0;
+    width: 230px;
+    opacity: 1;
+    right: 16px; }
+  .header .search-form
+  .search-submit {
+    display: none; }
+
+#logo {
+  width: 300px;
+  float: left;
+  margin: 15px 0 0 -4px;
+  display: block; }
+
 /*********************
 NAVIGATION STYLES
 *********************/
+.main-nav {
+  float: right;
+  position: relative;
+  top: 14px;
+  display: block; }
+
 .nav {
   border: 0;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */ }
   .nav ul {
+    background: #fff;
     margin-top: 0; }
   .nav li {
     float: left;
@@ -211,22 +365,25 @@ NAVIGATION STYLES
     /* showing sub-menus */ }
     .nav li a {
       border-bottom: 0;
+      color: #5c6b80;
+      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 600;
       /*
       you can use hover styles here even though this size
       has the possibility of being a mobile device.
       */ }
       .nav li a:hover, .nav li a:focus {
-        color: white;
-        text-decoration: underline; }
+        color: #0088cc;
+        background: #eee; }
     .nav li ul.sub-menu,
     .nav li ul.children {
       margin-top: 0;
-      border: 1px solid #ccc;
       border-top: 0;
       position: absolute;
-      overflow: hidden;
       visibility: hidden;
       z-index: 8999;
+      right: 0;
+      background: #eee;
       /* highlight sub-menu current page */ }
       .nav li ul.sub-menu li,
       .nav li ul.children li {
@@ -240,20 +397,114 @@ NAVIGATION STYLES
           padding-left: 10px;
           border-right: 0;
           display: block;
-          width: 180px;
-          border-bottom: 1px solid #ccc; }
+          width: 240px; }
+          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus,
+          .nav li ul.children li a:hover,
+          .nav li ul.children li a:focus {
+            background: #ddd;
+            opacity: 1; }
         .nav li ul.sub-menu li:last-child a,
         .nav li ul.children li:last-child a {
           border-bottom: 0; }
-    .nav li:hover ul {
+        .nav li ul.sub-menu li ul,
+        .nav li ul.children li ul {
+          top: 0;
+          left: 100%; }
+    .nav li:hover > ul {
       top: auto;
-      overflow: visible;
       visibility: visible; }
 
 /* end .nav */
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+/* for sites that are read right to left (i.e. hebrew) */
+.home #content {
+  padding-top: 60px; }
+.home .news-loop h3, .home .trend-loop h3 {
+  margin: 0 0 .5em;
+  border-bottom: 1px solid #e5e5e5; }
+.home .news-loop {
+  float: left;
+  margin-right: 1.5em;
+  max-width: 404px; }
+  .home .news-loop .post-title {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+    color: #777; }
+    .home .news-loop .post-title:hover {
+      color: #FF7216; }
+.home .trend-loop {
+  float: right;
+  width: 200px; }
+  .home .trend-loop .post-title {
+    display: none; }
+
+/* home page */
+/* blog template page */
+/* archive page */
+/* date archive page */
+/* replace the number to the corresponding page number */
+/* search page */
+/* search result page */
+/* no results search page */
+/* individual paged search (i.e. body.search-paged-3) */
+/* 404 page */
+/* single post page */
+/* individual post page by id (i.e. body.postid-73) */
+/* individual paged single (i.e. body.single-paged-3) */
+/* attatchment page */
+/* individual attatchment page (i.e. body.attachmentid-763) */
+/* style mime type pages */
+.author .post-loop {
+  width: 100%; }
+
+/* author page */
+/* user nicename (i.e. body.author-samueladams) */
+/* paged author archives (i.e. body.author-paged-4) for page 4 */
+/* category page */
+/* individual category page (i.e. body.category-6) */
+/* replace the number to the corresponding page number */
+/* tag page */
+/* individual tag page (i.e. body.tag-news) */
+/* replace the number to the corresponding page number */
+/* custom page template page */
+/* individual page template (i.e. body.page-template-contact-php */
+/* replace the number to the corresponding page number */
+/* parent page template */
+/* child page template */
+/* replace the number to the corresponding page number */
+/* if user is logged in */
+/* paged items like search results or archives */
+/* individual paged (i.e. body.paged-3) */
+.post-loop {
+  width: 50%;
+  float: left;
+  margin-right: 1.5em;
+  padding-right: 1em; }
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
+#sidebar1 .yarpp-related-widget li {
+  height: 60px;
+  list-style: none; }
+  #sidebar1 .yarpp-related-widget li .yarpp-widget-title {
+    font-size: .875em;
+    line-height: 18px;
+    display: block; }
+  #sidebar1 .yarpp-related-widget li .share-count {
+    color: #bbb;
+    font-size: .8em; }
+#sidebar1 .widget-thumb {
+  float: left;
+  margin-right: 12px; }
+  #sidebar1 .widget-thumb img {
+    width: 80px;
+    vertical-align: text-top; }
+
 .sidebar {
   margin-top: 2.2em; }
 
@@ -309,7 +560,14 @@ be seen on the Desktop.
 
 ******************************************************************/
 .wrap {
-  width: 1040px; }
+  max-width: 1200px;
+  width: 100%; }
+
+.home-feature {
+  height: 97%; }
+
+.home .feature-wrap .home-feature .post-title {
+  font-size: 2.2em; }
 
 /*
 you can call the larger styles if you want, but there's really no need

@@ -210,6 +210,8 @@ function bones_theme_support() {
 	// wp menus
 	add_theme_support( 'menus' );
 
+	add_theme_support( 'html5', array( 'search-form' ) );
+
 	// registering wp3+ menus
 	register_nav_menus(
 		array(

@@ -19,6 +19,7 @@ GENERAL STYLES
 
 body {}
 
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -31,18 +32,103 @@ LAYOUT & GRID STYLES
 HEADER STYLES
 *********************/
 
-.header {}
+.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+	height: 80px;
+}
 
-	#logo {}
+.header-scroll {
+	// background: #f9f9f9;
+	opacity: .987;
+	box-shadow: 0px 1px 3px #eee;
+	.sub-menu { opacity: 1; }
+}
+
+.header {
+
+	background: #fff;
+
+	#header-search {
+		float: right;
+		// overflow: hidden;
+	}
+	input[type="search"] {
+	  max-width: 400px;
+	}
+	.search-form {
+	// position: absolute;
+	// right: 200px;
+	// top: 200px;
+	position: relative;
+	top: 17px;
+	right: -8px;
+}
+
+.search-field {
+	background-color: transparent;
+	background-image: url(../images/search-icon.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	border: none;
+	cursor: pointer;
+	height: 37px;
+	margin: 3px 0;
+	padding: 0 0 0 34px;
+	position: relative;
+	-webkit-transition: width 400ms ease, background 400ms ease;
+	transition:         width 400ms ease, background 400ms ease;
+	width: 0;
+	opacity: .5;
+	&:hover {
+		opacity: .8;
+	}
+}
+
+.search-field:focus {
+	background-color: #eee;
+	// border: 2px solid #c3c0ab;
+	cursor: text;
+	outline: 0;
+	width: 230px;
+	opacity: 1;
+	right: 16px;
+}
+.search-form
+.search-submit { 
+display:none;
+}
+
+}
+
+	#logo {
+		width: 300px;
+		float: left;
+		margin: 15px 0 0 -4px;
+		display: block;
+	}
+
+
 
 /*********************
 NAVIGATION STYLES
 *********************/
 
+.main-nav {
+	float: right;
+	position: relative;
+	top: 14px;
+	display: block;
+}
+
 .nav {
 	border: 0;
 	ul {
-		background:$black;
+		background:$white;
 		margin-top:0;
 	}
 	li {
@@ -51,14 +137,18 @@ NAVIGATION STYLES
 
 		a {
 			border-bottom: 0;
+			color: #5c6b80;
+			font-family: $lato;
+			font-weight: 600;
 
 			/*
 			you can use hover styles here even though this size
 			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
-				color: $white;
-				text-decoration: underline;
+				color: $apple-blue;
+				background: #eee;
+				// text-decoration: underline;
 			}
 		}
 
@@ -71,11 +161,13 @@ NAVIGATION STYLES
 		ul.sub-menu,
 		ul.children {
 			margin-top: 0;
-			border: 1px solid #ccc;
+			// border: 1px solid #ccc;
 			border-top: 0;
 			position: absolute;
 			visibility: hidden;
 			z-index: 8999;
+			right: 0;
+			background: #eee;
 
 			li {
 
@@ -83,11 +175,14 @@ NAVIGATION STYLES
 					padding-left: 10px;
 					border-right: 0;
 					display: block;
-					width: 180px;
-					border-bottom: 1px solid #ccc;
+					width: 240px;
+					
 
 					&:hover,
-					&:focus {}
+					&:focus { 
+						background: #ddd;
+						opacity: 1;
+					}
 
 					&:link {}
 				}
@@ -137,9 +232,114 @@ NAVIGATION STYLES
 
 } /* end .nav */
 
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+
+.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
+.home {
+	#content { padding-top: 60px; }
+	.news-loop h3, .trend-loop h3 {
+		margin: 0 0 .5em;
+		border-bottom: 1px solid #e5e5e5;
+	}
+	
+	.news-loop {
+		// width: 23.7%;
+		float: left;
+		margin-right: 1.5em;
+		max-width: 404px;
+		.post-title {
+			font-size: 1.2em;
+			padding: 0;
+			margin: 0;
+			color: #777;
+			&:hover { color: $link-hover; }
+			// font-weight: 600;
+		}
+	}
+	.trend-loop {
+		float: right;
+		width: 200px;
+		.post-title {
+			display: none;
+		}
+	}
+}                          /* home page */
+.blog {}                          /* blog template page */
+.archive {}                       /* archive page */
+.date {}                          /* date archive page */
+	.date-paged-1 {}                /* replace the number to the corresponding page number */
+.search {}                        /* search page */
+	.search-results {}              /* search result page */
+	.search-no-results {}           /* no results search page */
+	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
+.error404 {}                      /* 404 page */
+.single {}                        /* single post page */
+	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
+.attachment {}                    /* attatchment page */
+	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {}        /* style mime type pages */
+.author {
+	.post-loop { width: 100%; }
+}                        /* author page */
+	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {}                      /* category page */
+	.category-1 {}                  /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {}            /* replace the number to the corresponding page number */
+.tag {}                           /* tag page */
+	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
+.page-template {}                 /* custom page template page */
+	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {}                /* replace the number to the corresponding page number */
+	.page-parent {}                 /* parent page template */
+	.page-child {}                  /* child page template */
+	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
+.logged-in {}                     /* if user is logged in */
+.paged {}                         /* paged items like search results or archives */
+	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
+
+.post-loop {
+		width: 50%;
+		float: left;
+		margin-right: 1.5em;
+		padding-right: 1em;
+	}
+	
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
+
+#sidebar1 {
+	.yarpp-related-widget{
+		li {
+			height: 60px;
+			list-style: none;
+			.yarpp-widget-title { 
+				font-size: .875em;
+				line-height: 18px;
+				display: block; 
+			}
+			.share-count { 
+				color: #bbb;
+				font-size: .8em;
+			}
+		}
+	}
+	.widget-thumb {
+		float: left;
+		margin-right: 12px;
+		img {
+			width: 80px;
+			vertical-align: text-top;
+		}
+	}
+}
 
 .sidebar {
 	margin-top: 2.2em;

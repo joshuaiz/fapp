@@ -16,12 +16,69 @@ GENERAL STYLES
 *********************/
 
 body {
-	font-family: $lato;
+	font-family: $aleo;
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
-	background-color: $gray;
-  -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+	text-decoration: none;
+	color: $apple-blue;
+	&:hover { color: lighten($apple-blue, 10%); }
+}
+
+img { 
+	max-width: 100%;
+	height: auto;
+	&:hover, &:focus { opacity: 0.8; }
+}
+
+b, strong {
+	font-family: $lato;
+}
+
+.nostyle {
+	list-style-type: none;
+}
+
+.search-term {
+	font-weight: 600;
+	background: #eee;
+	padding: .2em .5em;
+}
+
+.post-loop {
+		.post-title {
+			margin: 0;
+			font-size: 1.5em;
+			font-weight: 500;
+			color: #0088cc;
+			&:hover { color: $link-hover; }
+		}
+		.tagline {
+			margin: .5em 0;
+			color: #777;
+			font-family: $lato;
+		}
+		.hentry {
+			margin-bottom: 1.5em;
+			border-bottom: 1px dotted #eee;
+			padding-bottom: 1em;
+		}
+		.post-loop-thumb {
+		float: left;
+		margin-right: 1em;
+	}
+	.post-loop-meta {
+		margin-top: -6px;
+	}
+}
+
+p.tags {
+	font-family: $lato;
+	a { font-weight: 600; }
 }
 
 /********************
@@ -30,7 +87,84 @@ style a page via class
 ********************/
 
 .rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
+.home {
+	#soliloquy-container-49 {
+	.soliloquy-caption {
+		display: none;
+		width: 100%;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		top: auto;
+		position: absolute;
+		height: 100%;
+	}
+
+	.soliloquy-container .soliloquy-caption-inside {
+		width: 100% !important;
+		height: 100% !important;
+	}
+	h2.soliloquy-fc-title, .soliloquy-fc-title-link {
+		font-size: 1em !important;
+		font-weight: 500 !important;
+
+	}
+
+}
+.soliloquy-fc-slider .soliloquy-caption-inside {
+		height: 100% !important;
+	}
+
+	.feature-wrap {
+		// height: 200px;
+		margin: 0 0 1.5em;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		.home-feature { 
+			// width: 66.6666666667%;
+			// float: left;
+			margin-right: 1.3em;
+			position: relative;
+			overflow: hidden;
+			.feature-link { 
+				position: absolute; 
+				width: 100%;
+				height: 96%;
+			}
+			.post-title {
+				font-size: 1.5em;
+				margin: 0;
+				position: absolute;
+				max-width: 800px;
+				max-height: 200px;
+				padding: 1em;
+				height: 100%;
+				width: 100%;
+				color: #fff;
+				background: rgba(0, 0, 0, 0.4);
+				&:hover { background: rgba(0, 136, 204, 0.6); }
+			}
+			.feature-tagline {
+				position: absolute;
+				background: #0088cc;
+				color: #fff;
+				font-family: "Lato";
+				padding: 2px 5px;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 26px;
+			}
+		}
+		.home-callout { float: right; }
+	}
+	.home-wrap{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+	}
+}                          /* home page */
 .blog {}                          /* blog template page */
 .archive {}                       /* archive page */
 .date {}                          /* date archive page */
@@ -40,7 +174,19 @@ style a page via class
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
 .error404 {}                      /* 404 page */
-.single {}                        /* single post page */
+.single {
+	
+	.entry-content {
+		.post-loop-thumb {
+			margin: 1.5em 0 0;
+			padding: 0;
+		img { margin-bottom: 0; }
+		}
+		img {
+			margin: 0 0 1.5em;
+		}
+	}
+}                        /* single post page */
 	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
 	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
 .attachment {}                    /* attatchment page */
@@ -49,7 +195,11 @@ style a page via class
 .author {}                        /* author page */
 	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
 	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
-.category {}                      /* category page */
+.category {
+	.post-loop {
+		width: 100%; 
+	}
+}                      /* category page */
 	.category-1 {}                  /* individual category page (i.e. body.category-6) */
 	.category-paged-1 {}            /* replace the number to the corresponding page number */
 .tag {}                           /* tag page */
@@ -65,6 +215,7 @@ style a page via class
 .paged {}                         /* paged items like search results or archives */
 	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
 
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -79,7 +230,7 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-	color: $link-color;
+	color: $apple-blue;
 
 	/* on hover */
 	&:hover, &:focus {
@@ -108,6 +259,7 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
+	font-family: $aleo-bold;
 	font-weight: 500;
 	/*
 	if you're going to use webfonts, be sure to check your weights
@@ -152,11 +304,15 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+
+	#header-search {
+		.screen-reader-text { display: none; }
+	}
+	
 }
 
 	#logo {
-		margin: 0.75em 0;
+		display: none;
 
 		a {
 			color: $white;
@@ -174,6 +330,10 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
+
+.main-nav {
+	display: none;
+}
 
 .nav {
 	border-bottom: 0;
@@ -255,24 +415,22 @@ POSTS & CONTENT STYLES
 }
 
 		.hentry {
-			background-color: $white;
-			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
 			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
+				// padding: 1.5em;
 			}
 
 			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
+				// padding: 1.5em;
+				margin: 0 0 1.5em;
 
 				p {
 					margin: 0;
+
 				}
 			}
+
 
 		} /* end .hentry */
 
@@ -303,20 +461,26 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: $meta-gray;
-			font-style: italic;
+			// font-style: italic;
 			margin: 0;
+			font-size: 12px;
+			font-family: $lato;
+			a { 
+				color: $meta-gray;
+				&:hover { color: #5c6b80; }
+			}
 
 			time {}
 		}
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			// padding: 1.5em 1.5em 0;
 
 			p {
 				margin: 0 0 1.5em;
+				font-family: $aleo;
 			}
-
 
 			ul, ol, table, dl {}
 
@@ -482,10 +646,20 @@ POSTS & CONTENT STYLES
 		.size-medium {}
 		.size-thumbnail {}
 
+		.article-footer {
+			.mashsb-count {
+				display: none;
+			}
+		}
+
 	// the tag output
 	.tags {
 		margin: 0;
 	}
+
+.post-author, .post-time {
+	margin-right: 8px;
+}
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -847,12 +1021,12 @@ SIDEBARS & ASIDES
 	}
 
 	.no-widgets {
-		background-color: $white;
-		padding: 1.5em;
-		text-align: center;
-		border: 1px solid $border-color;
-		border-radius: 2px;
-		margin-bottom: 1.5em;
+		// background-color: $white;
+		// padding: 1.5em;
+		// text-align: center;
+		// border: 1px solid $border-color;
+		// border-radius: 2px;
+		// margin-bottom: 1.5em;
 	}
 
 /*********************
@@ -886,3 +1060,71 @@ FOOTER STYLES
 
 
 	.copyright {}
+
+.home .soliloquy-prev {
+	opacity: .2 !important;
+	position: absolute !important;
+	left: 0px !important;
+	height: 100% !important;
+	top: 16px !important;
+	&:hover, &:focus {
+		opacity: .8 !important;
+	}
+
+}
+
+.home .soliloquy-next {
+	opacity: .2 !important;
+	position: absolute !important;
+	height: 100% !important;
+	top: 16px !important;
+	right: 0px !important;
+	&:hover, &:focus {
+		opacity: .8 !important;
+	}
+}
+
+.mashsb-container {
+	margin: 1.5em 0;
+}
+
+.mashsb-box, .mashsb-count, .mashsb-sharetext {
+	font-family: $lato !important;
+}
+
+.mashsb-count {
+	font-size: 34px !important;
+	margin-top: 8px !important;
+}
+
+.yarpp-related, .yarpp-related-widget {
+	h3 { font-family: "Lato";
+		font-weight: 600;
+	}
+}
+
+.yarpp-related li {
+	width: 160px;
+	// margin-right: 1em;
+	display: inline-block;
+	height: 170px;
+	vertical-align: top;
+	font-size: 14px;
+	line-height: 1.4;
+	a { font-family: $aleo; }
+}
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail {
+border: 0 !important;
+width: 160px !important;
+height: 170px !important;
+margin: 0 !important;
+margin-left: 0px;
+vertical-align: top;
+}
+
+.yarpp-thumbnail > img, .yarpp-thumbnail-default {
+width: 150px !important;
+height: auto !important;
+margin: 0 !important;
+}

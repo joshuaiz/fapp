@@ -28,6 +28,7 @@ $white:             #fff;
 $light-gray:        #f8f9fa;
 $gray:              #eaedf2;
 $text-color:        #5c6b80;
+// $text-color: 		#3f4549;
 $meta-gray:         #9fa6b4;
 
 $tan:               #eceee5;
@@ -37,8 +38,13 @@ $green:             #7dd667;
 $bones-pink:        #f01d4f;
 $blue:              #2980b9;
 
-$link-color:        $bones-pink;
-$link-hover:        darken($link-color, 9%);
+$apple-blue:		#0088cc;
+$fapp-orange:		#FF7216;
+
+$link-color:        $apple-blue;
+// $link-hover:        darken($link-color, 9%);
+
+$link-hover:		$fapp-orange;	
 
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;

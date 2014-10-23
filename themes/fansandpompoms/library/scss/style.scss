@@ -69,6 +69,19 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 @import "breakpoints/base";
 
 /*********************
+SMALL MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's
+larger than an iPhone but smaller than a tablet. Let's call them
+tweeners.
+*********************/
+@media only screen and (max-width: 480px) {
+
+	// styles in 481up.scss
+	@import "breakpoints/480down";
+
+} // end of media query
+
+/*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
 larger than an iPhone but smaller than a tablet. Let's call them
@@ -82,6 +95,31 @@ tweeners.
 } // end of media query
 
 /*********************
+PHABLET DOWN
+This is for all devices below iPad portrait size. This media
+query makes it easy, yo.
+*********************/
+@media only screen and (min-width: 481px) and (max-width: 599px) {
+
+	// styles in 599down.scss
+	@import "breakpoints/599down";
+
+} // end of media query
+
+
+/*********************
+BELOW TABLET
+This is for all devices below iPad portrait size. This media
+query makes it easy, yo.
+*********************/
+@media only screen and (max-width: 767px) {
+
+	// styles in 767down.scss
+	@import "breakpoints/767down";
+
+} // end of media query
+
+/*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
@@ -91,6 +129,18 @@ you can add resource intensive styles.
 
 	// styles in 768up.scss
 	@import "breakpoints/768up";
+
+} // end of media query
+
+/*********************
+DESKTOP TWEENER
+These are in-between desktop sizes but remember, tablets
+will also be affected
+*********************/
+@media only screen and (min-width: 768px) and (max-width: 1029px) {
+
+	// styles in 1029down.scss
+	@import "breakpoints/1029down";
 
 } // end of media query
 

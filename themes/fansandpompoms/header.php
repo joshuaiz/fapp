@@ -30,6 +30,8 @@
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
 		<?php // end of wordpress head ?>
@@ -37,24 +39,28 @@
 		<?php // drop Google Analytics Here ?>
 		<?php // end analytics ?>
 
+		<script type="text/javascript"> 
+var disqus_developer = 1; // this would set it to developer mode
+</script> 
+
 	</head>
 
 	<body <?php body_class(); ?>>
 
 		<div id="container">
 
-			<header class="header" role="banner">
+			<header class="header sticky-header" id="sticky-header" role="banner">
 
 				<div id="inner-header" class="wrap cf">
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><img src="/wp-content/uploads/2014/10/fapp_logo@2x.png" width="300"></a></p>
 
 					<?php // if you'd like to use the site description you can un-comment it below ?>
 					<?php // bloginfo('description'); ?>
 
 
-					<nav role="navigation">
+					<nav role="navigation" class="main-nav">
 						<?php wp_nav_menu(array(
     					'container' => false,                           // remove nav container
     					'container_class' => 'menu cf',                 // class of container (should you choose to use it)
@@ -70,6 +76,10 @@
 						)); ?>
 
 					</nav>
+
+					<search id="header-search">
+					<?php get_search_form(); ?>
+					</search>
 
 				</div>
 
