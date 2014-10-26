@@ -21,3 +21,35 @@ be seen on the Desktop.
 .home .feature-wrap .home-feature .post-title {
 	font-size: 2.2em;
 }
+
+.post-loop { 
+	.post-title {
+		font-size: 1.5em;
+	}
+	.tagline {
+		font-size: 1em;
+	}
+}
+
+.home .news-loop .post-title {
+	font-size: 1.2em;
+}
+
+.mashsb-buttons a {
+	min-width: 150px;
+}
+
+[class^="mashicon-"] .text {
+	font-size: 15px;
+}
+
+[class^="mashicon-"] .icon:before, [class*=" mashicon-"] .icon:before {
+	font-size: 16px;
+}
+
+.mashicon-subscribe {
+	height: 42px;
+	.dashicons-rss {
+		font-size: 15px;
+	}
+}

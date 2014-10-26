@@ -52,7 +52,7 @@ b, strong {
 .post-loop {
 		.post-title {
 			margin: 0;
-			font-size: 1.5em;
+			font-size: 1.2em;
 			font-weight: 500;
 			color: #0088cc;
 			&:hover { color: $link-hover; }
@@ -61,6 +61,7 @@ b, strong {
 			margin: .5em 0;
 			color: #777;
 			font-family: $lato;
+			font-size: .8em;
 		}
 		.hentry {
 			margin-bottom: 1.5em;
@@ -156,6 +157,9 @@ style a page via class
 				font-size: 16px;
 				line-height: 26px;
 			}
+			.feature-img-2 {
+				display: none;
+			}
 		}
 		.home-callout { float: right; }
 	}
@@ -170,12 +174,29 @@ style a page via class
 .date {}                          /* date archive page */
 	.date-paged-1 {}                /* replace the number to the corresponding page number */
 .search {}                        /* search page */
-	.search-results {}              /* search result page */
+	.search-results {
+		.search-title {
+			margin: 0;
+		}
+		.byline {
+			margin: .5em 0;
+		}
+		.post-loop-thumb {
+			float: left;
+			margin-right: 1.5em;
+		}
+		.hentry {
+			border-bottom: 1px solid #eee;
+		}
+		.entry-content {
+			margin: 1em 0;
+		}
+	}              /* search result page */
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
 .error404 {}                      /* 404 page */
 .single {
-	
+	.byline a { color: $apple-blue; }
 	.entry-content {
 		.post-loop-thumb {
 			margin: 1.5em 0 0;
@@ -196,6 +217,9 @@ style a page via class
 	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
 	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
 .category {
+	.category-description {
+		margin: 0 0 2em; 
+	}
 	.post-loop {
 		width: 100%; 
 	}
@@ -299,6 +323,11 @@ h5, .h5 {
 	letter-spacing: 2px;
 }
 
+.archive-title {
+	font-family: $lato;
+	font-weight: 600;
+}
+
 /*********************
 HEADER STYLES
 *********************/
@@ -308,6 +337,8 @@ HEADER STYLES
 	#header-search {
 		.screen-reader-text { display: none; }
 	}
+
+	h1.site-title { display: none; }
 	
 }
 
@@ -1127,4 +1158,15 @@ vertical-align: top;
 width: 150px !important;
 height: auto !important;
 margin: 0 !important;
+}
+
+.mashsb-buttons a {
+	padding: 8px;
+	font-size: 10px;
+}
+
+.mashicon-subscribe .dashicons-rss {
+	margin-right: 4px;
+	color: #111;
+	font-size: 12px;
 }

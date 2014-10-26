@@ -19,6 +19,7 @@ GENERAL STYLES
 
 body {}
 
+#content { padding-top: 60px; }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -68,51 +69,50 @@ HEADER STYLES
 	right: -8px;
 }
 
-.search-field {
-	background-color: transparent;
-	background-image: url(../images/search-icon.png);
-	background-position: 5px center;
-	background-repeat: no-repeat;
-	background-size: 20px 20px;
-	border: none;
-	cursor: pointer;
-	height: 37px;
-	margin: 3px 0;
-	padding: 0 0 0 34px;
-	position: relative;
-	-webkit-transition: width 400ms ease, background 400ms ease;
-	transition:         width 400ms ease, background 400ms ease;
-	width: 0;
-	opacity: .5;
-	&:hover {
-		opacity: .8;
-	}
-}
-
-.search-field:focus {
-	background-color: #eee;
-	// border: 2px solid #c3c0ab;
-	cursor: text;
-	outline: 0;
-	width: 230px;
-	opacity: 1;
-	right: 16px;
-}
-.search-form
-.search-submit { 
-display:none;
-}
-
-}
-
-	#logo {
-		width: 300px;
-		float: left;
-		margin: 15px 0 0 -4px;
-		display: block;
+	.search-field {
+		background-color: transparent;
+		background-image: url(../images/search-icon.png);
+		background-position: 5px center;
+		background-repeat: no-repeat;
+		background-size: 20px 20px;
+		border: none;
+		cursor: pointer;
+		height: 37px;
+		margin: 3px 0;
+		padding: 0 0 0 34px;
+		position: relative;
+		-webkit-transition: width 400ms ease, background 400ms ease;
+		transition:         width 400ms ease, background 400ms ease;
+		width: 0;
+		opacity: .5;
+		&:hover {
+			opacity: .8;
+		}
 	}
 
+	.search-field:focus {
+		background-color: #eee;
+		// border: 2px solid #c3c0ab;
+		cursor: text;
+		outline: 0;
+		width: 230px;
+		opacity: 1;
+		right: 16px;
+		position: absolute;
+		opacity: .96 !important;
+	}
+	.search-form .search-submit { 
+		display:none;
+	}
 
+} /* end .header */
+
+#logo {
+	width: 300px;
+	float: left;
+	margin: 15px 0 0 -4px;
+	display: block;
+}
 
 /*********************
 NAVIGATION STYLES
@@ -239,19 +239,17 @@ style a page via class
 
 .rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
 .home {
-	#content { padding-top: 60px; }
 	.news-loop h3, .trend-loop h3 {
 		margin: 0 0 .5em;
 		border-bottom: 1px solid #e5e5e5;
 	}
-	
 	.news-loop {
 		// width: 23.7%;
 		float: left;
 		margin-right: 1.5em;
 		max-width: 404px;
 		.post-title {
-			font-size: 1.2em;
+			font-size: 1em;
 			padding: 0;
 			margin: 0;
 			color: #777;
@@ -259,11 +257,43 @@ style a page via class
 			// font-weight: 600;
 		}
 	}
+	.trend-wrap {
+		position: relative;
+		background: #111;
+		max-height: 96px;
+		overflow: hidden;
+	}
+	.trend-wrap:hover .trend-loop-thumb img { opacity: .48; }
+	.trend-wrap:hover .thumb-title { display: block; z-index: 99; }
+	.trend-wrap:hover .trend-cat { opacity: .15; z-index: 1; }
 	.trend-loop {
 		float: right;
 		width: 200px;
-		.post-title {
+		.trend-loop-thumb {
+			max-height: 96px;
+		}
+		.thumb-title {
 			display: none;
+			position: absolute;
+			margin: 0;
+			top: 0;
+			padding: 1em;
+			color: #fff;
+			font-size: 14px;
+			line-height: 19px;
+			font-weight: 600;
+		}
+		.trend-cat {
+			margin: 0;
+			position: absolute;
+			color: #fff;
+			top: 0;
+			right: 0;
+			padding: 3px 8px;
+			background: $fapp-orange;
+			font-family: $lato;
+			font-weight: 600;
+			opacity: .97;
 		}
 	}
 }                          /* home page */
@@ -309,7 +339,6 @@ style a page via class
 		margin-right: 1.5em;
 		padding-right: 1em;
 	}
-	
 
 /*********************
 SIDEBARS & ASIDES
@@ -342,7 +371,7 @@ SIDEBARS & ASIDES
 }
 
 .sidebar {
-	margin-top: 2.2em;
+	margin-top: 1.5em;
 }
 
 	.widgettitle {
@@ -485,3 +514,15 @@ mobile. Make sure to double check these!
 	}
 } /* end .footer-links */
 
+/*********************
+PLUGIN STYLES
+*********************/
+
+.mashsb-buttons a {
+	padding:13px;
+	font-size: 13px !important;
+}
+
+[class^="mashicon-"] .icon:before, [class*=" mashicon-"] .icon:before {
+	font-size: 14px;
+}

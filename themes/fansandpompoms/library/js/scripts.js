@@ -170,54 +170,31 @@ jQuery(document).ready(function($) {
        caption.appendTo(active);
     });
 
-
+// Add newsletter signup to Subscribe sharing box
 $('.sharing-post .sola_nl_sign_up_box').appendTo('.sharing-post .mashsb-toggle-container');
-
 $('.article-footer .sola_nl_sign_up_box').appendTo('.article-footer .mashsb-toggle-container');
 
+// Swap out icon for Mashshare Subscribe button
+$('.mashicon-subscribe span.icon').addClass('dashicons-rss dashicon').removeClass('icon');
+
+// Add "0 Comments" to posts without comments
 if($('.byline .comments-link').text().length == 0 ) {
   $('.comments-link').text('0 Comments');
-
 }
 
+// Add grey background to nav sub-menu
 $('.sub-menu').hover(function() {
   $(this).closest('.menu-item-has-children').css('background', '#eeeeee');
 }, function() {
   $(this).closest('.menu-item-has-children').css('background', 'none');
 });
 
-// $('.feature-image').load(function() {
-//   $(this).closest('.home-feature').css('height', $(this).height());
-// });
-
-var img = $('.feature-image img'); 
-img.load(function() {
-    var width = img.width();
-    var height = img.height();
-    $('.home-feature, .home-feature .post-title').css('height', height);
-    $('.home-feature, .home-feature .post-title').css('overflow', 'hidden');
-});
-
+// Add tagline to feature on home page
 $('.feature-tagline').appendTo('.feature-link .post-title');
 
-
-
-}); /* end of as page load scripts */
-
-
-// jQuery(document).ready(function($){
-//   $(window).scroll(function(){
-//   var sticky = $('header'),
-//       scroll = $(window).scrollTop();
-
-//   if (scroll >= 100) sticky.addClass('header-scroll');
-//   else sticky.removeClass('header-scroll');
-// });
-// });
-
-jQuery(document).ready(function($){
-  var offset = $( ".sticky-header" ).offset();
-var sticky = document.getElementById("sticky-header")
+// Add sticky header
+var offset = $( ".sticky-header" ).offset();
+  var sticky = document.getElementById("sticky-header")
 
 $(window).scroll(function() {
 
@@ -228,4 +205,24 @@ $(window).scroll(function() {
     } 
 
 });
+
+// Randomize two featured images for feature section on home page
+var numRand = Math.floor(Math.random() * 11);
+
+  if (numRand % 2 == 0) {
+    $('.feature-img-1').show();
+    $('.feature-img-2').hide();
+
+} else {
+    $('.feature-img-2').show();
+    $('.feature-img-1').hide();
+  
+}
+
+// Sort Trend Loop divs randomly
+var randomDivs = $(".trend-loop .hentry").get().sort(function(){ 
+     return Math.round(Math.random())-0.5;
 });
+$(randomDivs).appendTo(randomDivs[0].parentNode).show();
+
+}); /* end of as page load scripts */
